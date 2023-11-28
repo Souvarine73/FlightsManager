@@ -4,3 +4,4 @@ project/target/
 .bsp/
 project/project/
 src/main/scala/org/ntic/entregable/prueba_borrar.sc
+output/

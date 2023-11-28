@@ -30,9 +30,9 @@ object FlightsLoader extends App {
                                         //  del vuelo, la cadena "_delayed" y la extensión .obj
     // TODO: Escribe los vuelos no retrasados en el fichero de salida usando la función writeObject y
     //  pasándole como parámetros los vuelos no retrasados y el path del fichero de salida para los vuelos no retrasados.
-    //???
+    writeObject(notDelayedFlights, flightObjPath)
     // TODO: Escribe los vuelos retrasados en el fichero de salida usando la función writeObject y
     //  pasándole como parámetros los vuelos retrasados y el path del fichero de salida para los vuelos retrasados.
-    //???
+    writeObject(delayedFlights, delayedFlightsObj)
   }
 }

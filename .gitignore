@@ -1,0 +1,6 @@
+/target
+project/target/
+.idea/
+.bsp/
+project/project/
+src/main/scala/org/ntic/entregable/prueba_borrar.sc

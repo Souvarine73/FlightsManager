@@ -9,7 +9,7 @@ object FileUtils {
      * @param s: String
      * @return Boolean: true if the line is invalid, false otherwise
      */
-    // TODO: Implementar esta función
+    // DONE TODO: Implementar esta función
     //  asegúrate de que el número de campos es el correcto, `s` representa una línea del csv, para ser inválido:
     //    - debe ser vacío,
     //    - tras hacer un split por el delimitador (ver FlightsLoaderConfig) el número de campos debe ser distinto al

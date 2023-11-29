@@ -1,7 +1,9 @@
 package org.ntic.entregable
 
 import com.sun.media.sound.InvalidFormatException
-/*
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
+
 class FlightDateTest extends AnyFlatSpec with Matchers {
   "A org.ntic.entregable.FlightDate" should "be correctly initialized from string" in {
     val dateStr = "7/1/2023 12:00:00 AM"
@@ -15,4 +17,3 @@ class FlightDateTest extends AnyFlatSpec with Matchers {
     an [InvalidFormatException] should be thrownBy FlightDate.fromString(dateStr)
   }
 }
-*/

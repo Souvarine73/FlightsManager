@@ -36,7 +36,7 @@ object Time {
 
   def fromMinutes(minutes: Int): Time = {
     //val normalized = minutes / totalMinutesInADay
-    //Time(normalized / 60, normalized % 60)
-    if ((minutes/60) > 23) Time((minutes / 60) - 24, minutes % 60) else Time(minutes / 60, minutes % 60)
+    val normalized = minutes % totalMinutesInADay
+    Time(normalized / 60, normalized % 60)
   }
 }

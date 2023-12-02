@@ -8,31 +8,14 @@ case class Flight(flDate: String,
                   depDelay: Double,
                   arrDelay: Double) extends Ordered[Flight] {
 
-  lazy val flightDate: FlightDate = FlightDate.fromString(flDate)  // DONE TODO: define el campo flightDate (perezoso e inmutable) de tipo org.ntic.entregable.FlightDate a partir del campo flDate
-                                    //    que es de tipo String.
-                                    //    Pista: usa el método fromString de org.ntic.entregable.FlightDate
+  lazy val flightDate: FlightDate = FlightDate.fromString(flDate)
 
-  lazy val actualDepTime: Time = Time.fromMinutes(scheduledDepTime.asMinutes + depDelay.toInt) // REVIEW DONE  TODO: define el campo actualDepTime (perezoso e inmutable) de tipo org.ntic.entregable.Time a partir de los campos
-                                //    scheduledDepTime y depDelay
-                                //    Ten en cuenta que este campo debe representar la hora de salida real del vuelo, esto quiere decir que debe
-                                //    tener en cuenta el retraso, el campo depDelay representa el retraso en minutos, puede ser negativo y es Double.
-                                //    Pista: usa el método fromMinutes de org.ntic.entregable.Time
+  lazy val actualDepTime: Time = Time.fromMinutes(scheduledDepTime.asMinutes + depDelay.toInt)
 
-  lazy val actualArrTime: Time = Time.fromMinutes(scheduledArrTime.asMinutes + arrDelay.toInt) // DONE  TODO: define el campo actualArrTime (perezoso e inmutable) de tipo org.ntic.entregable.Time a partir de los campos
-                                //    scheduledArrTime y arrDelay.
-                                //    Ten en cuenta que este campo debe representar la hora de llegada real del vuelo, esto quiere decir que debe
-                                //    tener en cuenta el retraso, el campo arrDelay representa el retraso en minutos, puede ser negativo y es Double.
-                                //    Pista: usa el método fromMinutes de org.ntic.entregable.Time
+  lazy val actualArrTime: Time = Time.fromMinutes(scheduledArrTime.asMinutes + arrDelay.toInt)
 
-  val isDelayed: Boolean = depDelay != 0 || arrDelay != 0 // DONE TODO: define el atirbuto inmutable `isDelayed` de tipo Boolean que indica si el vuelo está retrasado o no.
-                               //  Pista: un vuelo está retrasado si el campo depDelay o el campo arrDelay son distintos de 0
+  val isDelayed: Boolean = depDelay != 0 || arrDelay != 0
 
-  // DONE REVIEW TODO: la clase org.ntic.entregable.Flight debe poderse ordenar por el campo actualArrTime, para ello la clase debe implementar el trait Ordered
-  //  Pista: para implementar el trait Ordered debes implementar el método compare
-  //  Pista: el método compare debe devolver un Int
-  //  Pista: el método compare debe comparar el atributo actualArrTime del objeto que invoque a la función con el
-  //  atributo actualArrTime de la clase que se le pasa como parámetro
-  //  Pista: actualArrTime es de tipo org.ntic.entregable.Time
   def compare(that: Flight): Int = this.actualArrTime - that.actualArrTime // Review
 }
 
@@ -40,9 +23,7 @@ object Flight {
 
 
   def fromString(flightInfoRow: String): Flight = {
-    val columns: Array[String] = flightInfoRow.split(FlightsLoaderConfig.delimiter)  // DONE  TODO: genera un array de Strings a partir de la variable flightInfoRow
-                                      //    Pista: usa el método split de la clase String
-                                      //    Pista: el delimitador está en la configuración
+    val columns: Array[String] = flightInfoRow.split(FlightsLoaderConfig.delimiter)
     def getColValue(colName: String): String = {
       /**
        * This function is used to get the value of a column from the array of String generated from the row of the csv
@@ -50,12 +31,7 @@ object Flight {
        * @param colName: String name of the column
        * @return String value of the column
        */
-      // DONE TODO: Implementar esta función
-      //  Pista: usa el mapa columnIndexMap de la clase FlightsLoaderConfig,
-      //    tiene como clave el nombre de la columna y como valor el índice de la columna
-      //  Pista: puedes usar el método apply de la clase Array para obtener el valor de la columna
-      //    del array de Strings `columns` usando el índice
-                                        columns.apply(FlightsLoaderConfig.columnIndexMap(colName))
+       columns.apply(FlightsLoaderConfig.columnIndexMap(colName))
     }
     val oriAirport = AirportInfo(
       airportId = getColValue("ORIGIN_AIRPORT_ID").toLong,

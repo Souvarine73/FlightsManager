@@ -28,7 +28,7 @@ object FlightDate {
     //  Pista: usa assert (ver https://www.scala-lang.org/api/2.13.12/scala/Predef$.html)
     //  Pista: Ten en cuenta que según la documentación del dataset, el año mínimo es 1987
     date.split(" ").head.split("/").map(x => x.toInt).toList match {
-      case day :: month :: year :: Nil => // Review
+      case month :: day :: year :: Nil => // Cambio el formato dado que el formato fecha en csv es MM/DD/YY
         assert(day >= 1, s"El día $day es invalido")
         assert(month >= 1 && month <= 12, s"El mes $month es invalido")
         assert(year >= 1987, s"El año $year es invalido")

@@ -21,7 +21,7 @@ object Time {
   val totalMinutesInADay = 1440
   def fromString(timeStr: String): Time = {
     val formatted: String = f"${timeStr.toInt}%04d"
-    val hours: Int = if (formatted.substring(0,2).toInt == 24) 0 else formatted.substring(0,2).toInt // DONE TODO: Extraer las horas de la variable `formatted`, que es un String de 4 caracteres: HHMM
+    val hours: Int = formatted.substring(0,2).toInt % 24 // DONE TODO: Extraer las horas de la variable `formatted`, que es un String de 4 caracteres: HHMM
                           //  Pista: puedes usar el método `substring` de la clase String,
                           //    revisa el dataset para entender el formato de la variable
                           //  Pista: puedes usar el método `toInt` de la clase String

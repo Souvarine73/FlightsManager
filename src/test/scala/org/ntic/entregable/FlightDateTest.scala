@@ -7,7 +7,7 @@ import org.scalatest.matchers.should.Matchers
 class FlightDateTest extends AnyFlatSpec with Matchers {
   "A org.ntic.entregable.FlightDate" should "be correctly initialized from string" in {
     val dateStr = "7/1/2023 12:00:00 AM"
-    val expected = FlightDate(day = 7, month = 1, year = 2023)
+    val expected = FlightDate(month = 7, day = 1, year = 2023)
     val result = FlightDate.fromString(dateStr)
     result shouldEqual expected
   }

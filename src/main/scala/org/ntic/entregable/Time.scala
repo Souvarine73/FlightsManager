@@ -22,7 +22,7 @@ object Time {
   def fromString(timeStr: String): Time = {
     val formatted: String = f"${timeStr.toInt}%04d"
     val hours: Int = formatted.substring(0,2).toInt % 24
-    val minutes: Int = formatted.substring(2,4).toInt
+    val minutes: Int = formatted.substring(2,4).toInt % 60
     new Time(hours, minutes)
   }
 
